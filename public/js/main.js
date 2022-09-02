@@ -98,9 +98,11 @@ async function search(){
     console.log('Actors: ' + data.Actors)
     console.log('Year: ' + data.Year)
     console.log('seriesID: ' + data.seriesID)
-
+    movieName.innerHTML = data.Title
+    targetBox.innerHTML = 'The movie picture will go here eventually lol' 
 };
 
+window.onload = search()
 
 
 
