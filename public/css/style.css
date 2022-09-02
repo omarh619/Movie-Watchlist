@@ -11825,7 +11825,7 @@ h5,
 .login-wrap {
     position: relative;
     background: #fff h3;
-    background-font-weight: 300;
+    /* background-font-weight: 300; */
 }
 
 .form-group {
