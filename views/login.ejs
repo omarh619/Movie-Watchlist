@@ -1,17 +1,8 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-    <title>Log In</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-    <!-- Leon's Code Begins
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <!-- Leon's Code Begins
     This code was in Leon's original code. To be honest I have no idea what its doing at the moment. I will look into it later. However as it stands now, this page seems to function with or without it included. -->
     <% if (locals.messages.errors) { %>
         <% messages.errors.forEach( el=> { %>
