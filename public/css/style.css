@@ -16,6 +16,17 @@ h1 {
 Original Code Ends */
 
 
+<<<<<<< HEAD
+=======
+/*!
+ * Bootstrap v4.3.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 The Bootstrap Authors
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+
+>>>>>>> 566c465b96db4b0f3294f07c5b2fe9c6c2d89f58
 :root {
     --blue: #007bff;
     --indigo: #6610f2;
@@ -12014,6 +12025,7 @@ h5,
     color: #fff;
 }
 
+<<<<<<< HEAD
 
 #splash {
     background-color: tan;
@@ -14436,4 +14448,18 @@ section {
     text-align: center;
     font-size: 13px;
     color: #012970;
+=======
+#movies-styles-test {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.movie-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+>>>>>>> 566c465b96db4b0f3294f07c5b2fe9c6c2d89f58
 }
