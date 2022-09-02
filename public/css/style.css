@@ -21,6 +21,8 @@ h1 {
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+
 :root {
     --blue: #007bff;
     --indigo: #6610f2;
@@ -12017,4 +12019,18 @@ h5,
     border: 1px solid transparent;
     background: #e3b04b;
     color: #fff;
+}
+
+#movies-styles-test {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.movie-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
