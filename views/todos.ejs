@@ -3,26 +3,26 @@
 
 <%- include('./partials/head.ejs') %>
 
-    <body class="text-center bg-dark bg-gradient" >
+    <body class="text-center  bg-gradient" >
         <h1 class="text-light">Your Watchlist</h1>
-        <ul class="list-group list-group-numbered bg-dark">
+        <ul class="list-group list-group-numbered bg-dark ">
             <% todos.forEach( el=> { %>
-                <li class="list-group-item d-flex justify-content-between align-items-start bg-light" data-id='<%=el._id%>'>
+                <li class="list-group-item d-flex justify-content-between align-items-start " data-id='<%=el._id%>'>
                     <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
                     <span class='del btn-sm btn-danger'> Delete </span>
                 </li>
                 <% }) %>
         </ul>
     <div >
-        <h2 class="text-light">
+        <h2 class="text-dark">
             <%= user.userName %> has <%= left %> movies in their watchlist.
         </h2>
     </div>
 
-        <h2 class="text-light"> Not sure what to watch? </h2>
-        <p id="incoming-title" class="text-light bg-dark"></p>
+        <h2 class="text-dark"> Not sure what to watch? </h2>
+        <p id="incoming-title" class=""></p>
         <img src="" id="incoming-img" class="figure-img img-fluid rounded">
-        <p id="incoming-desc" class=" text-light bg-dark"></p>
+        <p id="incoming-desc" class=""></p>
 
         <!-- Clicking this button will make API call to generate random movie-->
         <div class="container ">
