@@ -3,9 +3,9 @@
 
 <%- include('./partials/head.ejs') %>
 
-    <body>
-        <h1>Your Watchlist</h1>
-        <ul>
+    <body class="text-center">>
+        <h1 >Your Watchlist</h1>
+        <ul class="row">
             <% todos.forEach( el=> { %>
                 <li class='todoItem' data-id='<%=el._id%>'>
                     <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
@@ -30,20 +30,21 @@
 
         <h2> Not sure what to watch? </h2>
 
-        <form action="/todos/createTodo" method='POST'>
-            <input type="submit" value="Random">
+        <form action="/todos/createTodo" method='POST' class=" mb-3">
+            <input type="submit" value="Random" id="random" class="btn btn-dark">
         </form>
         <p> clicking above makes API call </p>
 
 
-        <input type="submit" value="Add to Watchlist">
-        <p> clicking above adds Movie to database </p>
+        <input type="submit" value="+ Add to Watchlist" id="watchlist" class="btn btn-danger" >
+        
+        <p class="mg"> clicking above adds Movie to database </p>
 
 
 
 
 
-        <a href="/logout">Logout</a>
+        <a href="/logout" class="btn-sm btn-warning ">Logout</a>
 
         <script src="js/main.js"></script>
     </body>
