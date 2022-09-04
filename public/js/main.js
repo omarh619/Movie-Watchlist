@@ -72,42 +72,31 @@ async function markIncomplete(){
 //this generates a random number and inputs it into the movie api key
 const movieName = document.querySelector('#movie-name')
 const moviePoster = document.querySelector('#poster')
-const KEY = 'http://www.omdbapi.com/?apikey=4899398e'
+const KEY = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=be0cf5cf6bac9b1433800fb42bc2e41e'
+const title = document.querySelector('#incoming-title')
+const desc = document.querySelector('#incoming-desc')
+const poster = document.querySelector('#incoming-img')
+const randomButton = document.querySelector('#random')
+randomButton.addEventListener('click', () => search())
+const IMG_PATH = 'https://image.tmdb.org/t/p/w500'
 
-//BELOW DOESNT WORK 
-// async function genRan(){
-//   let randomMovie = Math.floor(Math.random() * 9000000) + 1000000 
-//   let URL = KEY + `&i=tt${randomMovie}`
-//     let attempt = await fetch(`${URL}`, {
-//         Method: 'POST'
-//     }).then((response) => {
-//         if(response){
-//             console.log(response)
-//         }}).catch((error) => console.log(error))
-    
-//     return attempt
-// }
-//ABOVE DOESNT WORK 
-
-//works perfectly
 async function search(){
     // Error: randomMovie can return an invalid movie number
-    let randomMovie = Math.floor(Math.random() * 9000000) + 1000000 
-    const response = await fetch(`${KEY}&i=tt${randomMovie}`)
-    const data = await response.json();
-    console.log(data);
-    console.log('Title: ' + data.Title)
-    console.log('Actors: ' + data.Actors)
-    console.log('Year: ' + data.Year)
-    console.log('seriesID: ' + data.seriesID)
-    movieName.innerHTML = data.Title
-    moviePoster.src = data.Poster 
-    moviePoster.alt = data.Title 
-};
+    let randomPage = Math.floor(Math.random() * 10) + 1
+    console.log(randomPage)
+    let response = await fetch(`${KEY}&page=${randomPage}`)
+    let data = await response.json();
+    let randomTitle = Math.floor(Math.random() * (data.results.length - 1)) + 0
+    
+    title.innerHTML = data.results[randomTitle].title
+    desc.innerHTML = data.results[randomTitle].overview
+    poster.src = `${IMG_PATH + data.results[randomTitle].poster_path}`
+    console.log(data)
+}
+
 window.onload = search()
 
 
 
 
 
- 
