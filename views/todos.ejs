@@ -24,7 +24,7 @@
             <% }) %>
     </ul>
         <h2 class="text-dark" id="suggestion-box"> Not sure what to watch? Here's a suggestion.</h2>
-        <div class="outer-movie-content-box">
+        <div class="outer-movie-content-box mb-5">
             <div class="movie-title-and-image">
                 <p id="incoming-title"></p>
                 <img src="" id="incoming-img" class="figure-img img-fluid rounded">
@@ -35,8 +35,9 @@
             </div>
         </div>
             
-        <div class="outer-bottom-buttons-box">
-            <div class="random-button-box">
+    <div class="d-flex justify-content-center mt-5">
+        <div class="outer-bottom-buttons-box d-flex justify-content-center ">
+            <div class="random-button-box center">
                 <button id="random" class='btn btn-success '>Random</button>
             </div>
             <form action="/todos/createTodo" method='POST' >
@@ -44,6 +45,7 @@
                 <input type="submit" id='watchlist' value='+ Add to Watchlist' class='btn btn-danger ' >
             </form>
         </div>
+    </div>
 
         
         <script src="js/main.js"></script>
