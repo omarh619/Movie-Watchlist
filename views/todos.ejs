@@ -1,46 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <%- include('./partials/head.ejs') %>
 
-<body>
-    <h1>Movies Testing</h1>
-    <ul>
-        <li id="movie-name"></li>
-        <img id="poster" src="" class="img-fluid" alt="">
-    </ul>
-    
-    <!-- 
-        Started building out movie search but not sure what to put inside of action
-        
-        I'm confused as fuck
-    
-    -->
-    <!-- <form action="" onsubmit="findMovie()">
+<%- include('./partials/head.ejs') %>
+
+    <body>
+        <h1>Your Watchlist</h1>
+        <ul>
+            <% todos.forEach( el=> { %>
+                <li class='todoItem' data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
+                    <span class='del'> Delete </span>
+                </li>
+                <% }) %>
+        </ul>
+
+        <!-- <form action="" onsubmit="findMovie()">
         <label class="control-label" for="title">Title:</label>
         <input type="text" placeholder="Search Movie" id="movieTitle" name="title" class="input-small">
         <input name="Submit"  type="submit">
     </form> -->
 
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
 
-    <a href="/logout">Logout</a>
+        <h2>
+            <%= user.userName %> has <%= left %> movies in their watchlist.
+        </h2>
 
-    <script src="js/main.js"></script>
-</body>
+
+        <h2> Not sure what to watch? </h2>
+
+        <form action="/todos/createTodo" method='POST'>
+            <input type="submit" value="Random">
+        </form>
+        <p> clicking above makes API call </p>
+
+
+        <input type="submit" value="Add to Watchlist">
+        <p> clicking above adds Movie to database </p>
+
+
+
+
+
+        <a href="/logout">Logout</a>
+
+        <script src="js/main.js"></script>
+    </body>
+
 </html>
