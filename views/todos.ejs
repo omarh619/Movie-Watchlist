@@ -3,8 +3,8 @@
 
 <%- include('./partials/head.ejs') %>
 
-    <body class="text-center">>
-        <h1 >Your Watchlist</h1>
+    <body class="text-center">
+        <h1>Your Watchlist</h1>
         <ul class="row">
             <% todos.forEach( el=> { %>
                 <li class='todoItem' data-id='<%=el._id%>'>
@@ -14,30 +14,24 @@
                 <% }) %>
         </ul>
 
-        <!-- <form action="" onsubmit="findMovie()">
-        <label class="control-label" for="title">Title:</label>
-        <input type="text" placeholder="Search Movie" id="movieTitle" name="title" class="input-small">
-        <input name="Submit"  type="submit">
-    </form> -->
-
-
-
-
         <h2>
             <%= user.userName %> has <%= left %> movies in their watchlist.
         </h2>
-
 
         <h2> Not sure what to watch? </h2>
         <p id="incoming-title"></p>
         <img src="" id="incoming-img">
         <p id="incoming-desc"></p>
-        <form action="/todos/createTodo" method='POST' class=" mb-3">
-            <input type="submit" value="Random" id="random" class="btn btn-dark">
 
+        <!-- Clicking this button will make API call to generate random movie-->
+        <button id="random" class='btn btn-dark'> Random</button>
+
+        <!-- Clicking this button -->
+        <form action="/todos/createTodo" method='POST'>
+            <input type="text" id="movieName" name='todoItem' value=''>
+            <input type="submit" id='watchlist' value='Add to watchlist' class='btn btn-danger'>
         </form>
 
-        <input type="submit" value="+ Add to Watchlist" id="watchlist" class="btn btn-danger" >
 
         <a href="/logout" class="btn-sm btn-warning ">Logout</a>
 

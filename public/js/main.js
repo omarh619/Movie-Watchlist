@@ -1,7 +1,13 @@
-
 const deleteBtn = document.querySelectorAll('.del')
 const todoItem = document.querySelectorAll('span.not')
 const todoComplete = document.querySelectorAll('span.completed')
+
+// On Click, #movieName (invisible text box) for a form, gets the value of the randomly generated movie title.
+document.getElementById('watchlist').addEventListener('click',changeName)
+function changeName(){
+    document.getElementById('movieName').value = document.querySelector('#incoming-title').innerHTML
+ }
+
 
 Array.from(deleteBtn).forEach((el)=>{
     el.addEventListener('click', deleteTodo)
@@ -97,6 +103,7 @@ async function search(){
 window.onload = search()
 
 
+ 
 
 
 
