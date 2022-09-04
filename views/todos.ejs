@@ -4,10 +4,10 @@
 <%- include('./partials/head.ejs') %>
 
     <body class="text-center  bg-gradient" >
-        <h1 class="text-light">Your Watchlist</h1>
-        <ul class="list-group list-group-numbered bg-dark ">
+        <h1 class="t">Your Watchlist</h1>
+        <ul class="list-group list-group-numbered ">
             <% todos.forEach( el=> { %>
-                <li class="list-group-item d-flex justify-content-between align-items-start " data-id='<%=el._id%>'>
+                <li class="list-group-item d-flex justify-content-between align-items-start bg-muted " data-id='<%=el._id%>'>
                     <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
                     <span class='del btn-sm btn-danger'> Delete </span>
                 </li>
