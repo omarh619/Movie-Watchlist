@@ -1,26 +1,22 @@
-/* Original Code Starts
-
-h1 {
-    color: red;
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 10px 0 10px;
 }
 
-.completed {
-    text-decoration: line-through;
-    color: gray;
+.header > span {
+    font-size: 1.5rem;
+    padding-top: 5px;
 }
 
-.not {
-    text-decoration: underline;
+#left-content-sentence{
+    font-size: 1.45rem;
 }
 
-Original Code Ends */
-
-/*!
- * Bootstrap v4.3.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 The Bootstrap Authors
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+#suggestion-box{
+    margin: 15px 0 15px 0;
+}
 
 #movieName {
     visibility: hidden;
@@ -28,6 +24,54 @@ Original Code Ends */
 
 .todoItem {
     display: block;
+}
+
+#logout-button{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.movie-title-and-image{
+    width: 50%;
+}
+
+.outer-movie-content-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.movie-desc-box{
+    text-align: left;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px 0 30px;
+    flex-direction: column;
+}
+
+#incoming-img{
+    height: 550px;
+}
+
+#incoming-title{
+    margin: 0 0 3px 0;
+}
+
+.outer-bottom-buttons-box {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-left: 120px;
+    margin-bottom: 10px;
+}
+
+.outer-bottom-buttons-box > form {
+
 }
 
 
@@ -76,28 +120,17 @@ html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-article,
-aside,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-nav,
-section {
-    display: block;
-}
+
 
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 1rem;
     font-weight: 400;
-    line-height: 1.5;
     color: #212529;
     text-align: left;
     background-color: #fff;
+    min-height: 100vh;
 }
 
 [tabindex="-1"]:focus {
@@ -12210,11 +12243,7 @@ section {
 /*--------------------------------------------------------------
   # Header
   --------------------------------------------------------------*/
-.header {
-    transition: all 0.5s;
-    z-index: 997;
-    padding: 20px 0;
-}
+
 
 .header.header-scrolled {
     background: #fff;

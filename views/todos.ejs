@@ -4,41 +4,48 @@
 <%- include('./partials/head.ejs') %>
 
     <body class="text-center  bg-gradient" >
-        <h1 class="t">Your Watchlist</h1>
-        <ul class="list-group list-group-numbered ">
+        <header class="header">
+            <span class="t"><%= user.userName %>'s Watchlist</span>
+            <a href="/logout" class="btn-sm btn-warning" id="logout-button">Logout</a>
+        </header>
+        
+    
+    <div >
+        <h2 class="text-dark" id="left-content-sentence">
+            You have <%= left %> movie(s) in your watchlist.
+        </h2>
+    </div>
+    <ul class="list-group list-group-numbered ">
             <% todos.forEach( el=> { %>
                 <li class="list-group-item d-flex justify-content-between align-items-start bg-muted " data-id='<%=el._id%>'>
                     <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
                     <span class='del btn-sm btn-danger'> Delete </span>
                 </li>
-                <% }) %>
-        </ul>
-    <div >
-        <h2 class="text-dark">
-            <%= user.userName %> has <%= left %> movies in their watchlist.
-        </h2>
-    </div>
-
-        <h2 class="text-dark"> Not sure what to watch? </h2>
-        <p id="incoming-title" class=""></p>
-        <img src="" id="incoming-img" class="figure-img img-fluid rounded">
-        <p id="incoming-desc" class=""></p>
-
-        <!-- Clicking this button will make API call to generate random movie-->
-        <div class="container ">
-            <div class="">
-                <button id="random" class='btn btn-success '> Random</button>
+            <% }) %>
+    </ul>
+        <h2 class="text-dark" id="suggestion-box"> Not sure what to watch? Here's a suggestion.</h2>
+        <div class="outer-movie-content-box">
+            <div class="movie-title-and-image">
+                <p id="incoming-title"></p>
+                <img src="" id="incoming-img" class="figure-img img-fluid rounded">
             </div>
-            <!-- Clicking this button -->
-            <form action="/todos/createTodo" method='POST' class="mt-5 mb-5">
+            <div class="movie-desc-box">
+                <p>Description:<br></p>
+                <p id="incoming-desc"></p> 
+            </div>
+        </div>
+            
+        <div class="outer-bottom-buttons-box">
+            <div class="random-button-box">
+                <button id="random" class='btn btn-success '>Random</button>
+            </div>
+            <form action="/todos/createTodo" method='POST' >
                 <input type="text" id="movieName" name='todoItem' value='' class="fixed-top ">
-                <input type="submit" id='watchlist' value='Add to watchlist' class='btn btn-danger ' >
+                <input type="submit" id='watchlist' value='+ Add to Watchlist' class='btn btn-danger ' >
             </form>
         </div>
 
-        <div class="">
-            <a href="/logout" class="btn-sm btn-warning">Logout</a>
-        </div>
+        
         <script src="js/main.js"></script>
     </body>
 
