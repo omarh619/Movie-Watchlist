@@ -1,32 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
+
+<%- include('./partials/head.ejs') %>
+
+    <body class="text-center  bg-gradient" >
+        <header class="header">
+            <span class="t"><%= user.userName %>'s Watchlist</span>
+            <a href="/logout" class="btn-sm btn-warning" id="logout-button">Logout</a>
+        </header>
+        
+    
+    <div >
+        <h2 class="text-dark" id="left-content-sentence">
+            You have <%= left %> movie(s) in your watchlist.
+        </h2>
+    </div>
+    <ul class="list-group list-group-numbered ">
+            <% todos.forEach( el=> { %>
+                <li class="list-group-item d-flex justify-content-between align-items-start bg-muted " data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? ' completed' : 'not' %>'><%= el.todo %></span>
+                    <span class='del btn-sm btn-danger'> Delete </span>
+                </li>
+            <% }) %>
     </ul>
+        <h2 class="text-dark" id="suggestion-box"> Not sure what to watch? Here's a suggestion.</h2>
+        <div class="outer-movie-content-box mb-5">
+            <div class="movie-title-and-image">
+                <p id="incoming-title"></p>
+                <img src="" id="incoming-img" class="figure-img img-fluid rounded">
+            </div>
+            <div class="movie-desc-box">
+                <p>Description:<br></p>
+                <p id="incoming-desc"></p> 
+            </div>
+        </div>
+            
+    <div class="d-flex justify-content-center mt-5">
+        <div class="outer-bottom-buttons-box d-flex justify-content-center ">
+            <div class="random-button-box center">
+                <button id="random" class='btn btn-success '>Random</button>
+            </div>
+            <form action="/todos/createTodo" method='POST' >
+                <input type="text" id="movieName" name='todoItem' value='' class="fixed-top ">
+                <input type="submit" id='watchlist' value='+ Add to Watchlist' class='btn btn-danger ' >
+            </form>
+        </div>
+    </div>
 
-    <h2><%= user.userName %> has <%= left %> things left to do.</h2>
+        
+        <script src="js/main.js"></script>
+    </body>
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
-
-    <a href="/logout">Logout</a>
-
-    <script src="js/main.js"></script>
-</body>
 </html>

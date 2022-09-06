@@ -40,6 +40,12 @@ app.use(flash())
   
 app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
+
+
+app.post('/test', async (req, res) => {
+  const { URL } = req.body
+})
+
  
 app.listen(process.env.PORT, ()=>{
     console.log('Server is running, you better catch it!')
